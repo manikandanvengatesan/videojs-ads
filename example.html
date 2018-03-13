@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Video.js Preroll</title>
+
+  <link href="http://vjs.zencdn.net/5.19/video-js.css" rel="stylesheet">
+  <link href="videojs.ads.css" rel="stylesheet">
+  <link href="videojs-preroll.css" rel="stylesheet" type="text/css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .info {
+      background-color: #eee;
+      border: thin solid #333;
+      border-radius: 3px;
+      padding: 0 5px;
+      text-align: center;
+    }
+    .video-js {
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+  <video id="examplePlayer"
+         class="video-js vjs-default-skin"
+         height="300"
+         width="600"
+         controls>
+    <p>
+      Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see the example.
+    </p>
+    <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+  </video>
+  <script src="http://vjs.zencdn.net/5.19/video.js"></script>
+  <script src="videojs.ads.js"></script>
+  <script src="videojs-preroll.js"></script>
+  <script>
+    // fire up the plugin
+    videojs('examplePlayer',{},function(){
+      var player = this;
+      player.preroll({
+        src:{src:"videoplay.mp4",type:"video/mp4"},
+        href:"http://videojs.com",
+        adsOptions: {debug:true}
+      });
+    });
+  </script>
+</body>
+</html>
